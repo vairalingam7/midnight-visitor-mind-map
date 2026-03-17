@@ -3,167 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Midnight Visitor | Mindmap</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>The Midnight Visitor | 8-Point Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1c2c;
-            --accent: #ff4757;
-            --text-dark: #2f3542;
-            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
-        /* Fade In Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            --bg: #0b0e14;
+            --card: #161b22;
+            --accent: #58a6ff;
+            --text: #c9d1d9;
+            --header: #f0f6fc;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-dark);
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
+            padding: 40px 20px;
         }
 
-        header {
+        .main-title {
             text-align: center;
-            padding: 50px 20px;
-            background: var(--primary);
-            color: white;
-            border-radius: 20px;
-            width: 100%;
-            max-width: 900px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin: 0;
-            letter-spacing: 2px;
+            font-size: clamp(2rem, 10vw, 4rem);
+            color: var(--header);
+            margin-bottom: 10px;
         }
 
-        .container {
+        .subtitle {
+            text-align: center;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            font-size: 0.9rem;
+        }
+
+        .grid-8 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            width: 100%;
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            border-top: 6px solid var(--accent);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            opacity: 0; /* Hidden initially for animation */
-            animation: fadeInUp 0.8s ease-out forwards;
+        .box {
+            background: var(--card);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Staggered Animation Delays */
-        .card:nth-child(1) { animation-delay: 0.2s; }
-        .card:nth-child(2) { animation-delay: 0.4s; }
-        .card:nth-child(3) { animation-delay: 0.6s; }
-        .card:nth-child(4) { animation-delay: 0.8s; }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        .box:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.1);
         }
 
-        h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary);
-            border-bottom: 2px solid #f1f2f6;
+        .box h3 {
+            color: var(--accent);
+            margin-top: 0;
+            font-size: 1.3rem;
+            border-bottom: 1px solid #30363d;
             padding-bottom: 10px;
         }
 
-        li {
-            margin-bottom: 15px;
-            line-height: 1.6;
-            list-style: none;
-            padding-left: 20px;
-            position: relative;
+        .box p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #8b949e;
         }
 
-        li::before {
-            content: "✦";
+        .box-num {
             position: absolute;
-            left: 0;
-            color: var(--accent);
+            top: 10px;
+            right: 15px;
+            font-size: 2rem;
+            font-weight: 800;
+            opacity: 0.05;
+            color: white;
         }
 
-        .footer {
-            margin: 50px 0;
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            opacity: 0.6;
             font-size: 0.8rem;
-            color: #777;
-            animation: fadeInUp 1s ease-out 1.2s forwards;
-            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .grid-8 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>THE MIDNIGHT VISITOR</h1>
-        <p>A Professional Literary Mindmap</p>
-    </header>
+    <h1 class="main-title">Ausable's Case File</h1>
+    <p class="subtitle">Complete 8-Point Literary Mindmap</p>
 
-    <div class="container">
-        <div class="card">
-            <h2>👥 Characters</h2>
-            <ul>
-                <li><b>Ausable:</b> The mastermind who relies on 100% wit.</li>
-                <li><b>Max:</b> The intruder who fell for the perfect bluff.</li>
-                <li><b>Fowler:</b> The writer who learned that appearances deceive.</li>
-            </ul>
+    <div class="grid-8">
+        <div class="box">
+            <div class="box-num">01</div>
+            <h3>Protagonist: Ausable</h3>
+            <p>A secret agent who defies all stereotypes. He is fat, speaks with an American accent, and stays in a "musty" room. His strength is his <b>presence of mind</b>.</p>
         </div>
 
-        <div class="card" style="border-top-color: #2ed573;">
-            <h2>🏨 Setting</h2>
-            <ul>
-                <li><b>French Hotel:</b> A top-floor room (6th floor).</li>
-                <li><b>The Window:</b> The focal point of the deadly deception.</li>
-            </ul>
+        <div class="box">
+            <div class="box-num">02</div>
+            <h3>Antagonist: Max</h3>
+            <p>The intruder. He is slender and fox-like. Despite having a gun, he loses because he is <b>gullible</b> and lacks the ability to verify Ausable’s lies.</p>
         </div>
 
-        <div class="card" style="border-top-color: #1e90ff;">
-            <h2>🎭 Plot Twist</h2>
-            <ul>
-                <li><b>The Balcony:</b> A purely imaginary escape route.</li>
-                <li><b>The Knock:</b> Just the waiter with a bottle of wine.</li>
-            </ul>
+        <div class="box">
+            <div class="box-num">03</div>
+            <h3>The Observer: Fowler</h3>
+            <p>A writer who expected a world of "dark-eyed beauties" and "pistol cracks." He represents the reader's <b>transition from disappointment to shock</b>.</p>
         </div>
 
-        <div class="card" style="border-top-color: #ffa502;">
-            <h2>💡 Themes</h2>
-            <ul>
-                <li><b>Perception:</b> Reality vs. Expectation.</li>
-                <li><b>Wisdom:</b> Presence of mind beats a pistol.</li>
-            </ul>
+        <div class="box">
+            <div class="box-num">04</div>
+            <h3>The Setting</h3>
+            <p>A small, poorly lit room on the <b>sixth floor</b> of a gloomy French hotel. The height of the room is essential for the "balcony" lie to be believable.</p>
+        </div>
+
+        <div class="box">
+            <div class="box-num">05</div>
+            <h3>The Conflict</h3>
+            <p>Man vs. Man. Max wants the secret missile report. The conflict is resolved not through physical combat, but through <b>psychological warfare</b>.</p>
+        </div>
+
+        <div class="box">
+            <div class="box-num">06</div>
+            <h3>The Deception</h3>
+            <p>Ausable complains about a <b>fake balcony</b> to plant a suggestion. He then bluffs that the "Police" are at the door to induce panic in Max.</p>
+        </div>
+
+        <div class="box">
+            <div class="box-num">07</div>
+            <h3>The Twist</h3>
+            <p>The "Police" knock was actually <b>Henry the waiter</b>. Max jumps out the window to hide on a balcony that never existed, leading to his end.</p>
+        </div>
+
+        <div class="box">
+            <div class="box-num">08</div>
+            <h3>Core Theme</h3>
+            <p><b>Brain beats Brawn.</b> The story proves that intelligence and calmness are the most powerful weapons a person can possess in a crisis.</p>
         </div>
     </div>
 
-    <div class="footer">
-        Design by vairalingam7 &bull; GitHub Pages
-    </div>
+    <footer>
+        Digital Dossier &bull; Created for Educational Excellence
+    </footer>
 
 </body>
 </html>
