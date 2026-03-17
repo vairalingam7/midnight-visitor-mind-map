@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Midnight Visitor | Master Dossier</title>
+    <title>The Midnight Visitor | Digital Case File</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #0d1117;
-            --card: #161b22;
+            --card-bg: #161b22;
             --accent: #58a6ff;
             --text: #c9d1d9;
             --white: #f0f6fc;
+            --border: #30363d;
         }
 
         body {
@@ -19,122 +20,164 @@
             color: var(--text);
             font-family: 'Outfit', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            line-height: 1.6;
         }
 
-        .header-section {
+        /* Header Animation */
+        .hero {
             text-align: center;
-            padding: 40px 0;
-            background: linear-gradient(to right, #161b22, #0d1117);
-            border-bottom: 2px solid var(--accent);
-            margin-bottom: 40px;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #1c2128 0%, #0d1117 100%);
+            border-bottom: 1px solid var(--border);
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 8vw, 3.5rem);
+            font-size: clamp(2.5rem, 8vw, 4rem);
             color: var(--white);
             margin: 0;
+            letter-spacing: -1px;
         }
 
-        .grid-container {
+        .status-bar {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(88, 166, 255, 0.1);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 15px;
+            border: 1px solid var(--accent);
+        }
+
+        /* 8-Box Grid */
+        .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 25px;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 50px auto;
+            padding: 0 20px;
         }
 
-        .info-box {
-            background: var(--card);
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 25px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+        .box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
 
-        .info-box:hover {
-            transform: translateY(-5px);
+        .box:hover {
+            transform: translateY(-8px);
             border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        h3 {
+        .box h2 {
+            font-family: 'Playfair Display', serif;
             color: var(--accent);
-            border-bottom: 1px solid #30363d;
-            padding-bottom: 10px;
             margin-top: 0;
-            font-size: 1.4rem;
+            font-size: 1.6rem;
         }
 
-        p, li {
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .box p {
+            font-size: 1rem;
             color: #8b949e;
         }
 
-        ul { padding-left: 18px; }
-        b { color: var(--white); }
+        .box b {
+            color: var(--white);
+        }
 
-        .footer {
+        .tag {
+            font-size: 0.7rem;
+            color: var(--accent);
+            opacity: 0.6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer {
             text-align: center;
-            padding: 40px;
-            font-size: 0.8rem;
-            opacity: 0.5;
+            padding: 60px 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: #484f58;
+        }
+
+        /* Smooth reveal animation */
+        .box {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="header-section">
+    <section class="hero">
         <h1>THE MIDNIGHT VISITOR</h1>
-        <p>Comprehensive Study Guide & Mindmap</p>
+        <div class="status-bar">CONFIDENTIAL CASE FILE: 001</div>
+        <p style="color: #8b949e; margin-top: 20px;">Detailed Mindmap & Literary Analysis</p>
+    </section>
+
+    <div class="container">
+        <div class="box">
+            <span class="tag">Profile</span>
+            <h2>Ausable</h2>
+            <p>The <b>unconventional spy</b>. Despite being fat and sloppy, he possesses extraordinary <b>presence of mind</b>. He defeats his enemies using psychological warfare instead of weapons.</p>
+        </div>
+        <div class="box">
+            <span class="tag">Threat</span>
+            <h2>Max</h2>
+            <p>The <b>crafty intruder</b>. He is fox-like and armed with a pistol. His fatal flaw is his <b>gullibility</b>; he fails to verify facts when placed under pressure.</p>
+        </div>
+        <div class="box">
+            <span class="tag">Observer</span>
+            <h2>Fowler</h2>
+            <p>A young writer seeking <b>romantic adventure</b>. He is the lens through which we see the subversion of spy stereotypes, moving from boredom to pure amazement.</p>
+        </div>
+        <div class="box">
+            <span class="tag">Location</span>
+            <h2>The Setting</h2>
+            <p>A <b>small, musty room</b> on the 6th floor of a French hotel. The height of the room is the key element that makes the "balcony" lie believable and deadly.</p>
+        </div>
+        <div class="box">
+            <span class="tag">Strategy</span>
+            <h2>The Balcony Lie</h2>
+            <p>Ausable <b>plants a suggestion</b> by complaining about a non-existent balcony. This creates a "mental escape route" for Max to use later in panic.</p>
+        </div>
+        <div class="box">
+            <span class="tag">The Bluff</span>
+            <h2>The Police</h2>
+            <p>When a knock is heard, Ausable bluffs that it is the <b>police</b>. The fear of arrest forces Max to make a split-second decision to jump onto the "balcony."</p>
+        </div>
+        <div class="box">
+            <span class="tag">The Twist</span>
+            <h2>The Reveal</h2>
+            <p>The visitor was actually <b>Henry the waiter</b> with a tray of drinks. There was no police and <b>no balcony</b>. Max jumps into the void and falls.</p>
+        </div>
+        <div class="box">
+            <span class="tag">Lesson</span>
+            <h2>The Theme</h2>
+            <p><b>Wit Over Weapons.</b> The story proves that intelligence, calmness, and the power of words are more effective than any physical firearm.</p>
+        </div>
     </div>
 
-    <div class="grid-container">
-        <div class="info-box">
-            <h3>1. Ausable: The Mastermind</h3>
-            <p>Ausable is a <b>non-stereotypical spy</b>. He is fat, speaks with an American accent, and lives in a small room. He proves that a secret agent's greatest weapon is <b>mental agility</b> and presence of mind rather than physical fitness.</p>
-        </div>
-
-        <div class="info-box">
-            <h3>2. Max: The Gullible Spy</h3>
-            <p>Max is the antagonist. Described as "slender" and "crafty," he holds Ausable at gunpoint. However, he lacks <b>critical thinking</b>. He believes Ausable's lies instantly because he is overconfident in his weapon.</p>
-        </div>
-
-        <div class="info-box">
-            <h3>3. Fowler: The Writer</h3>
-            <p>Fowler is a young writer who expected a life of "mysterious figures" and "pistols." Initially <b>disappointed</b> by Ausable's appearance, he ends the night <b>thrilled</b> as he witnesses a masterclass in deception.</p>
-        </div>
-
-        <div class="info-box">
-            <h3>4. The Setting & Atmosphere</h3>
-            <p>The story is set in a <b>gloomy French hotel</b> on the sixth and top floor. The height is crucial௮it makes the idea of a "balcony" believable enough to be a deadly trap for anyone who jumps.</p>
-        </div>
-
-        <div class="info-box">
-            <h3>5. The Psychological Trap</h3>
-            <p>Ausable "plants" the idea of a <b>balcony</b> by complaining about it earlier. This makes Max subconsciously believe there is an escape route under the window before the crisis even starts.</p>
-        </div>
-
-        <div class="info-box">
-            <h3>6. The Climax (The Knock)</h3>
-            <p>When a knock is heard, Ausable claims it is the <b>police</b> he called for protection. This panic-inducing lie forces Max to seek the "balcony" without checking if it actually exists.</p>
-        </div>
-
-        <div class="info-box">
-            <h3>7. Reality vs. Deception</h3>
-            <p>The visitor at the door was actually <b>Henry the waiter</b> with drinks. Max jumps out the window and screams௮not because of the police, but because there was <b>no balcony</b> to catch him.</p>
-        </div>
-
-        <div class="info-box">
-            <h3>8. Message of the Story</h3>
-            <p><b>Wit beats Brawn:</b> The story highlights that presence of mind and calmness can overcome even a loaded gun. It teaches us not to judge a person’s capability by their <b>physical appearance</b>.</p>
-        </div>
-    </div>
-
-    <div class="footer">
-        Created for Educational Purposes &bull; vairalingam7
-    </div>
+    <footer>
+        &copy; 2026 Digital Mindmap Project | vairalingam7
+    </footer>
 
 </body>
 </html>
