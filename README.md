@@ -3,167 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Midnight Visitor | Mindmap</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>The Midnight Visitor | 8-Point Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a1c2c;
-            --accent: #ff4757;
-            --text-dark: #2f3542;
-            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-
-        /* Fade In Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            --bg: #0b0e14;
+            --card: #161b22;
+            --accent: #58a6ff;
+            --text: #c9d1d9;
+            --header: #f0f6fc;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: var(--text-dark);
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
+            padding: 40px 20px;
         }
 
-        header {
+        .main-title {
             text-align: center;
-            padding: 50px 20px;
-            background: var(--primary);
-            color: white;
-            border-radius: 20px;
-            width: 100%;
-            max-width: 900px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin: 0;
-            letter-spacing: 2px;
+            font-size: clamp(2rem, 10vw, 4rem);
+            color: var(--header);
+            margin-bottom: 10px;
         }
 
-        .container {
+        .subtitle {
+            text-align: center;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            font-size: 0.9rem;
+        }
+
+        .grid-8 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            width: 100%;
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            border-top: 6px solid var(--accent);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            opacity: 0; /* Hidden initially for animation */
-            animation: fadeInUp 0.8s ease-out forwards;
+        .box {
+            background: var(--card);
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Staggered Animation Delays */
-        .card:nth-child(1) { animation-delay: 0.2s; }
-        .card:nth-child(2) { animation-delay: 0.4s; }
-        .card:nth-child(3) { animation-delay: 0.6s; }
-        .card:nth-child(4) { animation-delay: 0.8s; }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        .box:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.1);
         }
 
-        h2 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary);
-            border-bottom: 2px solid #f1f2f6;
+        .box h3 {
+            color: var(--accent);
+            margin-top: 0;
+            font-size: 1.3rem;
+            border-bottom: 1px solid #30363d;
             padding-bottom: 10px;
         }
 
-        li {
-            margin-bottom: 15px;
-            line-height: 1.6;
-            list-style: none;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        li::before {
-            content: "✦";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        .footer {
-            margin: 50px 0;
-            font-size: 0.8rem;
-            color: #777;
-            animation: fadeInUp 1s ease-out 1.2s forwards;
-            opacity: 0;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>THE MIDNIGHT VISITOR</h1>
-        <p>A Professional Literary Mindmap</p>
-    </header>
-
-    <div class="container">
-        <div class="card">
-            <h2>👥 Characters</h2>
-            <ul>
-                <li><b>Ausable:</b> The mastermind who relies on 100% wit.</li>
-                <li><b>Max:</b> The intruder who fell for the perfect bluff.</li>
-                <li><b>Fowler:</b> The writer who learned that appearances deceive.</li>
-            </ul>
-        </div>
-
-        <div class="card" style="border-top-color: #2ed573;">
-            <h2>🏨 Setting</h2>
-            <ul>
-                <li><b>French Hotel:</b> A top-floor room (6th floor).</li>
-                <li><b>The Window:</b> The focal point of the deadly deception.</li>
-            </ul>
-        </div>
-
-        <div class="card" style="border-top-color: #1e90ff;">
-            <h2>🎭 Plot Twist</h2>
-            <ul>
-                <li><b>The Balcony:</b> A purely imaginary escape route.</li>
-                <li><b>The Knock:</b> Just the waiter with a bottle of wine.</li>
-            </ul>
-        </div>
-
-        <div class="card" style="border-top-color: #ffa502;">
-            <h2>💡 Themes</h2>
-            <ul>
-                <li><b>Perception:</b> Reality vs. Expectation.</li>
-                <li><b>Wisdom:</b> Presence of mind beats a pistol.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer">
-        Design by vairalingam7 &bull; GitHub Pages
-    </div>
-
-</body>
-</html>
+        .box p {
